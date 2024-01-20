@@ -1,0 +1,17 @@
+.container {
+    min-width: 0px;
+    max-width: 450px;
+    width: calc(100% - 0px);
+}
+
+.content {
+    padding-top: 40px;
+    margin-top: 40px;
+
+    width: 100%;
+    min-height: 280px;
+    height: max-content;
+
+    border-radius: 18px 18px 0px 0px;
+    background-color: rgb(239, 240, 242);
+}

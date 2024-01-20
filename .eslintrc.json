@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["unused-imports"],
+  "rules": {
+		"no-unused-vars": "on", // or "@typescript-eslint/no-unused-vars": "off",
+		"no-unused-imports": "error",
+	}
 }
