@@ -1,0 +1,38 @@
+.card {
+    background: none rgb(255, 255, 255);
+    overflow: visible;
+    border-radius: 18px;
+    padding: 16px;
+    opacity: 1;
+    transition: opacity 200ms ease 0s;
+    cursor: pointer;
+    align-self: stretch;
+    min-height: 165px;
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardImg {
+    height: 42px;
+    margin-bottom: 16px;
+}
+
+.cardHeader {
+    white-space: pre-wrap;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-default);
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.cardDescription {
+    white-space: pre-wrap;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-default);
+    line-height: 1.4;
+}

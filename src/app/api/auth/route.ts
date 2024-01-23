@@ -1,4 +1,7 @@
 import { authorizeUser } from "@/resources/rebooking-resources";
+import { cookies } from "next/headers";
+
+export const ONE_WEEK = 7 *  24 * 60 * 60 * 1000;
 
 export type IAuthSuccesfullResponse = {
     token: string;
@@ -13,9 +16,10 @@ export async function GET(request: Request) {
     console.log('creds -', creds)
     try {
         const authData = await authorizeUser(creds);
-        console.log('authData - ,', authData)
+        cookies().set('TOKEN', authData.data.token, {expires: new Date(Date.now() + ONE_WEEK)})
         return Response.json({ token: authData.data.token })
     } catch (error) {
+        console.log('error - ', error)
         let e = error as Error;
         return new Response(e.message, {
             status: 401,

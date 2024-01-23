@@ -5,6 +5,7 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   --color-primary-default: rgba(33, 148, 255, 1);
+  --color-text-default: rgba(28,31,37,1);
   --color-primary-contrast-default: rgba(255, 255, 255, 1);
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

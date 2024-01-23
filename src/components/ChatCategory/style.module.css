@@ -1,0 +1,20 @@
+.container {
+    overflow-y: scroll;
+    padding: 0 20px;
+}
+
+
+.cardsContainer {
+    display: grid;
+    justify-items: stretch;
+    gap: 15px;
+    grid-auto-rows: minmax(max-content, 0px);
+    grid-template-columns: repeat(2, minmax(0px, 1fr));
+    grid-auto-flow: row;
+    border-radius: 0px;
+    align-self: flex-start;
+    order: 2;
+    height: max-content;
+
+    max-height: 430px;
+}
