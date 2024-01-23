@@ -9,11 +9,10 @@ export const MainLayout: React.FC<IMainLayout> = ({ children }) => {
     return (
         <div className={styles.container}>
             <Header />
-
             <div className={styles.content}>
+                {children}
 
             </div>
-            {children}
         </div>
     );
 };

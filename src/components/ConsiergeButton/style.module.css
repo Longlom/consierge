@@ -1,0 +1,24 @@
+.longButton {
+    padding: 12px 24px;
+    width: calc(100% - 0px);
+    min-height: 46px;
+    height: max-content;
+    min-width: 150px;
+
+    background-color: var(--color-primary-default);
+    transition: background 200ms ease;
+    color: var(--color-primary-contrast-default);
+
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    cursor: pointer;
+    border: none;
+}
+
+.longButton:hover {
+    background: none rgba(25, 126, 221, 0.8);
+}

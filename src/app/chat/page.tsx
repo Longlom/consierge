@@ -1,11 +1,10 @@
-import { LoginPage } from "@/pages/Login";
 import { MainLayout } from "@/components/MainLayout";
 
-export default function Home() {
+export default function Chat() {
   return (
-
+      
       <MainLayout>
-        <LoginPage/>
+        chat
       </MainLayout>
   );
 }
