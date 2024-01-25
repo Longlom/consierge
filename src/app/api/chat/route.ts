@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 
 import data from './chatData.json';
 
-export const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
+const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 
 export type IChatDataResponse = {
     name: string;

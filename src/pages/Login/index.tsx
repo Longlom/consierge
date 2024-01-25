@@ -23,6 +23,7 @@ export const LoginPage: React.FC = () => {
             url.pathname = 'api/auth';
             url.searchParams.append('login', formData.get('login')?.toString() || '');
             url.searchParams.append('password', formData.get('password')?.toString() || '');
+            console.log(url)
             const authRequest = await fetch(url);
             // const authData: IAuthSuccesfullResponse = await authRequest.json();
             // localStorage.setItem(TOKEN, authData.token);

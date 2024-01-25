@@ -1,10 +1,49 @@
 .container {
-    overflow-y: scroll;
     padding: 0 20px;
 }
 
+.categoryContainer {
+    height: 32px;
+
+    display: flex;
+}
+
+.categories {
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    height: 100%;
+
+    display: grid;
+    justify-items: stretch;
+
+    gap: 0px;
+    grid-template-rows: repeat(1, minmax(max-content, auto));
+    grid-auto-columns: minmax(max-content, 1fr);
+    grid-auto-flow: column;
+
+    margin: 4px 0 0 10px;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.category {
+    margin-right: 26px;
+
+    cursor: pointer;
+}
+
+.category.active {
+    border-bottom: 2px solid rgb(85, 103, 241);
+}
 
 .cardsContainer {
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    padding: 20px 0;
     display: grid;
     justify-items: stretch;
     gap: 15px;
@@ -17,4 +56,20 @@
     height: max-content;
 
     max-height: 430px;
+}
+
+
+.chatInputContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 44px;
+}
+
+.button {
+    border: none;
+    cursor: pointer;
+}
+
+.input {
+    margin-right: 10px;
 }

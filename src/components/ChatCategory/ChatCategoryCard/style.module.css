@@ -15,6 +15,11 @@
     justify-content: space-between;
 }
 
+.card:hover {
+    background: rgba(39, 157, 239, 0.1);
+    
+}
+
 .cardImg {
     height: 42px;
     margin-bottom: 16px;

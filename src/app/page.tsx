@@ -14,14 +14,22 @@ export default async function Home() {
     redirect('/login');
   }
 
-  const url = `${headers().get("Referer")}/api/chat`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/api/chat`;
 
-  const chatData = await axios.get(url);
+  let chatData;
+
+  console.log('url - ', url)
+  try {
+    chatData = await axios.get(url);
+  } catch (e) {
+    console.log(e)
+  }
+
 
   return (
 
       <MainLayout>
-        <ChatCategory data={chatData.data}/>
+        <ChatCategory data={chatData?.data || []}/>
       </MainLayout>
   );
 }

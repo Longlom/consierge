@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from './style.module.css';
 
 import cn from 'classnames';

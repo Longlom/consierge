@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 export type IConsiergeButton = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
-    text: string;
+    text?: string;
     buttonType: 'long' | 'short';
 }
 

@@ -1,7 +1,7 @@
 import { authorizeUser } from "@/resources/rebooking-resources";
 import { cookies } from "next/headers";
 
-export const ONE_WEEK = 7 *  24 * 60 * 60 * 1000;
+const ONE_WEEK = 7 *  24 * 60 * 60 * 1000;
 
 export type IAuthSuccesfullResponse = {
     token: string;
