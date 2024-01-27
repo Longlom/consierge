@@ -14,11 +14,9 @@ export default async function Home() {
     redirect('/login');
   }
 
-  const url = `${process.env.NEXT_PUBLIC_URL}/api/chat`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/api/chat/category`;
 
   let chatData;
-
-  console.log('url - ', url)
   try {
     chatData = await axios.get(url);
   } catch (e) {

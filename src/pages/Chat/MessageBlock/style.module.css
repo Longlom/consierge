@@ -1,0 +1,33 @@
+.container {
+    padding: 10px 20px 0;
+
+    overflow: hidden auto;
+    justify-content: flex-start;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    min-height: 400px;
+    height: 400px;
+    
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.userMessageContaner {
+    display: flex;
+}
+
+.userMessageText {
+    background-color: rgb(7, 149, 249);
+    overflow: visible;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    padding: 12px 16px 12px 16px;
+    min-height: 41px;
+    width: 0px;
+    flex-grow: 1;
+    margin-left: 12px;
+
+    color: rgba(255,255,255,1);
+}

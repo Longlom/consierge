@@ -4,7 +4,7 @@ import styles from './style.module.css';
 import Image from 'next/image';
 import { useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { IChatDataResponse } from '@/app/api/chat/route';
+import { IChatDataResponse } from '@/app/api/chat/category/route';
 import categoryImg from '@/img/category-arrow.png';
 import sendImg from '@/img/send.svg';
 

@@ -7,7 +7,7 @@ const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 
 export type IChatDataResponse = {
     name: string;
-    choices: { title: string; description: string }[];
+    choices: { title: string; description: string, img: string }[];
 }[];
 
 export async function GET(request: Request) {
@@ -16,7 +16,6 @@ export async function GET(request: Request) {
     try {
         return Response.json(data);
     } catch (error) {
-        console.log('error - ', error);
         let e = error as Error;
         return new Response(e.message, {
             status: 500
