@@ -63,6 +63,7 @@ export const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
         e
     ) => {
         localStorage.setItem(CHAT_MESSAGE, usrInputMsg);
+        setUsrInputMsg('');
         router.push('/chat');
     };
 

@@ -85,6 +85,7 @@ export const Chat: React.FC<IChatProps> = ({ messages = [] }) => {
                             ...prevValue,
                             { userMsg: usrInputMsg }
                         ]);
+                        setUsrInputMsg('')
                     }}
                 >
                     <Image src={sendImg} alt="Send img" />{' '}
