@@ -6,6 +6,7 @@ import styles from './style.module.css';
 export type IMainLayout = {
     children?: React.ReactNode;
     withoutTopPadding?: boolean; 
+    className?: string;
 };
 
 export const MainLayout: React.FC<IMainLayout> = ({ children, withoutTopPadding = false, }) => {

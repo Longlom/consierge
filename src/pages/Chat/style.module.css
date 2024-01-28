@@ -30,3 +30,32 @@
 .backButton:hover {
     opacity: 0.5;
 }
+
+.content {
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.input {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: rgb(239, 240, 242);
+    min-height: 100px;
+    height: max-content;
+    width: calc(100% - 0px);
+    overflow: visible;
+    justify-content: flex-start;
+    padding: 10px 20px 44px;
+}
+
+.chatInputButton {
+    border: none;
+}
+
+.chatInput {
+    margin-right: 10px;
+
+
+}
