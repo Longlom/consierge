@@ -10,7 +10,7 @@ export type IMessageBlockProps = IChatProps['messages'][0] & {
     setAllMessages: (msg: IChatProps['messages']) => void;
 };
 
-export const MessageBlock: React.FC<IMessageBlockProps> = ({
+const MessageBlock: React.FC<IMessageBlockProps> = ({
     userMsg,
     consiergeMsg,
     setAllMessages
@@ -125,3 +125,5 @@ export const MessageBlock: React.FC<IMessageBlockProps> = ({
         </div>
     );
 };
+
+export default MessageBlock;

@@ -1,5 +1,5 @@
 import { MainLayout } from "@/components/MainLayout";
-import { ChatCategory } from "@/pages/ChatCategory";
+import ChatCategory  from "@/pages/ChatCategory";
 import axios from "axios";
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";

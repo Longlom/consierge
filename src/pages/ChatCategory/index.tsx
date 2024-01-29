@@ -8,7 +8,8 @@ import { IChatDataResponse } from '@/app/api/chat/category/route';
 import categoryImg from '@/img/category-arrow.png';
 import sendImg from '@/img/send.svg';
 
-import { CHAT_MESSAGE, ChatCategoryCard } from './ChatCategoryCard';
+import { CHAT_MESSAGE } from './ChatCategoryCard';
+import ChatCategoryCard from './ChatCategoryCard';
 
 import { ConsiergeInput } from '../../components/ConsiergeInput';
 import { ConsiergeButton } from '../../components/ConsiergeButton';
@@ -18,7 +19,7 @@ export type ChatCategoryProps = {
     data: IChatDataResponse;
 };
 
-export const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
+const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
     const router = useRouter();
 
     const [currentActiveCategory, setCurrentActiveCategory] = useState(0);
@@ -59,9 +60,7 @@ export const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
         e.stopPropagation();
     };
 
-    const onSendMsgClick: React.MouseEventHandler<HTMLButtonElement> = (
-        e
-    ) => {
+    const onSendMsgClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         localStorage.setItem(CHAT_MESSAGE, usrInputMsg);
         setUsrInputMsg('');
         router.push('/chat');
@@ -120,3 +119,5 @@ export const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
         </div>
     );
 };
+
+export default ChatCategory;

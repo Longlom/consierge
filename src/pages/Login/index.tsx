@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 
 export const TOKEN = 'TOKEN';
 
-export const LoginPage: React.FC = () => {
+const  LoginPage: React.FC = () => {
     const { push,  } = useRouter()
 
     const [login, setLogin] = useState('');
@@ -56,3 +56,5 @@ export const LoginPage: React.FC = () => {
     </div>
 }
 
+
+export default LoginPage;

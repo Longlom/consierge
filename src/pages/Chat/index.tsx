@@ -10,7 +10,7 @@ import { CHAT_MESSAGE } from '@/pages/ChatCategory/ChatCategoryCard';
 import sendImg from '@/img/send.svg';
 import backArrow from '@/public/chat/ic_arrow back.svg';
 import style from './style.module.css';
-import { MessageBlock } from './MessageBlock';
+import MessageBlock from './MessageBlock';
 import { ConsiergeInput } from '@/components/ConsiergeInput';
 
 export type IChatProps = {
@@ -33,7 +33,6 @@ export const Chat: React.FC<IChatProps> = ({ messages = [] }) => {
             localStorage.removeItem(CHAT_MESSAGE);
         };
     }, []);
-
 
     const onBackButtonClick: React.MouseEventHandler<HTMLButtonElement> = (
         e
@@ -85,7 +84,7 @@ export const Chat: React.FC<IChatProps> = ({ messages = [] }) => {
                             ...prevValue,
                             { userMsg: usrInputMsg }
                         ]);
-                        setUsrInputMsg('')
+                        setUsrInputMsg('');
                     }}
                 >
                     <Image src={sendImg} alt="Send img" />{' '}

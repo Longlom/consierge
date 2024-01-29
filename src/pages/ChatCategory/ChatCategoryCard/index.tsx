@@ -14,7 +14,7 @@ export type ChatCategoryCardProps = ChatCategoryProps['data'][0]['choices'][0];
 export const CHAT_MESSAGE = 'CHAT_MESSAGE';
 const CHAT_THEME = 'CHAT_THEME';
 
-export const ChatCategoryCard: React.FC<ChatCategoryCardProps> = ({
+const ChatCategoryCard: React.FC<ChatCategoryCardProps> = ({
     description,
     title,
     img
@@ -45,3 +45,6 @@ export const ChatCategoryCard: React.FC<ChatCategoryCardProps> = ({
         </div>
     );
 };
+
+
+export default  ChatCategoryCard;
