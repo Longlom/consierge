@@ -1,18 +1,25 @@
-import { authorizeUser } from '@/resources/rebooking-resources';
-import { cookies } from 'next/headers';
-
 import data from './chatData.json';
 
-const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
+export type CategoryType =
+    | 'realPlace'
+    | 'weekendPlan'
+    | 'food'
+    | 'free'
+    | 'excursion'
+    | 'facts';
 
 export type IChatDataResponse = {
     name: string;
-    choices: { title: string; description: string, img: string }[];
+    choices: {
+        title: string;
+        description: string;
+        img: string;
+        view?: string;
+        type: CategoryType;
+    }[];
 }[];
 
-export async function GET(request: Request) {
-    const { searchParams } = new URL(request.url);
-
+export async function GET() {
     try {
         return Response.json(data);
     } catch (error) {

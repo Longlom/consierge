@@ -1,7 +1,6 @@
 import { MainLayout } from "@/components/MainLayout";
-import ChatCategory  from "@/pages/ChatCategory";
-import axios from "axios";
-import { cookies, headers } from "next/headers";
+import ChatCategory  from "@/pagesComponent/ChatCategory";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
@@ -18,16 +17,19 @@ export default async function Home() {
 
   let chatData;
   try {
-    chatData = await axios.get(url);
+    const fetchData = await fetch(url, {cache: 'no-cache'});
+    chatData = await fetchData.json();
   } catch (e) {
     console.log(e)
   }
 
 
+  console.log('chatData', chatData);
+
   return (
 
       <MainLayout>
-        <ChatCategory data={chatData?.data || []}/>
+        <ChatCategory data={chatData || []}/>
       </MainLayout>
   );
 }

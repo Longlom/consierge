@@ -2,9 +2,7 @@
 
 export type IChatMessageResponse = {};
 
-export async function GET(request: Request) {
-    const { searchParams } = new URL(request.url);
-
+export async function GET() {
     try {
         return Response.json([]);
     } catch (error) {

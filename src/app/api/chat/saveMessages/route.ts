@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export type IChatMessageResponse = {};
 
 export async function POST(request: Request) {

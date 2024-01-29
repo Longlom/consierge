@@ -37,6 +37,7 @@ const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
             },
             []
         );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentActiveCategory]);
 
     const categories = useRef<HTMLDivElement>(null);
@@ -60,7 +61,7 @@ const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
         e.stopPropagation();
     };
 
-    const onSendMsgClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    const onSendMsgClick: React.MouseEventHandler<HTMLButtonElement> = () => {
         localStorage.setItem(CHAT_MESSAGE, usrInputMsg);
         setUsrInputMsg('');
         router.push('/chat');
@@ -69,6 +70,8 @@ const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
     const cards = flattenedChoices.map((choice, i) => (
         <ChatCategoryCard key={i} {...choice} />
     ));
+
+    console.log('data -', data)
 
     return (
         <div className={styles.container}>

@@ -5,15 +5,26 @@ import styles from './style.module.css';
 import Image from 'next/image';
 import { IChatProps } from '..';
 import { useEffect, useRef, useState } from 'react';
+import { CategoryType } from '@/app/api/chat/category/route';
 
 export type IMessageBlockProps = IChatProps['messages'][0] & {
     setAllMessages: (msg: IChatProps['messages']) => void;
+    metadata?: null | {type: CategoryType, view?: string};
 };
+
+const API_MAPPER: Record<CategoryType, string> = {
+    excursion: 'cityExpSpace',
+    realPlace: 'getRealPlaces',
+    facts: 'factsSpace',
+    food: 'TA',
+    free: 'spaceFreeQuestioin',
+    weekendPlan: 'weekendSpace'
+}
 
 const MessageBlock: React.FC<IMessageBlockProps> = ({
     userMsg,
     consiergeMsg,
-    setAllMessages
+    metadata,
 }) => {
     const [isGenerating, setGenerating] = useState(false);
     const [shouldGenerating, setShouldGenerating] = useState(true);
@@ -21,7 +32,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
 
     function saveMessageBlock(block: Required<IChatProps['messages'][0]>) {
         const url = new URL(
-            `${process.env.NEXT_PUBLIC_URL}/api/chat/saveMessages`
+            `${process.env.NEXT_PUBLIC_URL}/api/chat/saveMessages/$`
         );
 
         url.searchParams.append('userMsg', block.userMsg);
@@ -37,14 +48,18 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
     }
 
     useEffect(() => {
-        if (!consiergeMsg && !isGenerating && shouldGenerating) {
+        if (!consiergeMsg && !isGenerating && shouldGenerating && metadata) {
             setGenerating(true);
             setShouldGenerating(false);
+            const url = new URL(`https://back-concierge.rebooking.space/space/api/${API_MAPPER[metadata.type]}/`);
+
+            
+
             fetch(
-                'https://back-concierge.rebooking.space/space/api/SpaceGPTProxy/',
+                url,
                 {
                     method: 'POST',
-                    body: JSON.stringify({ query: userMsg }),
+                    body: JSON.stringify({ query: userMsg, city: 'Берлин', view: metadata.view }),
                     headers: {
                         key: '2k$m6lkxskaf*=$3c-+074+o6&r=ybxgdqd@0$=)-',
                         accept: 'application/json',
@@ -89,8 +104,10 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
                             reader.releaseLock();
                         }
                     });
-                });
+                })
+                .catch((err) => {console.log(err)});
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

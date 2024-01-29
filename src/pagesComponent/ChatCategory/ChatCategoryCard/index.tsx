@@ -12,17 +12,17 @@ import { ChatCategoryProps } from '..';
 export type ChatCategoryCardProps = ChatCategoryProps['data'][0]['choices'][0];
 
 export const CHAT_MESSAGE = 'CHAT_MESSAGE';
-const CHAT_THEME = 'CHAT_THEME';
 
 const ChatCategoryCard: React.FC<ChatCategoryCardProps> = ({
     description,
+    view,
+    type,
     title,
     img
 }) => {
-
-    const router = useRouter()
-    const onCategoryClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
-        localStorage.setItem(CHAT_MESSAGE, description)
+    const router = useRouter();
+    const onCategoryClick: React.MouseEventHandler<HTMLDivElement> = () => {
+        localStorage.setItem(CHAT_MESSAGE, JSON.stringify({description, type, view}));
         router.push('/chat');
     };
     return (
@@ -46,5 +46,4 @@ const ChatCategoryCard: React.FC<ChatCategoryCardProps> = ({
     );
 };
 
-
-export default  ChatCategoryCard;
+export default ChatCategoryCard;

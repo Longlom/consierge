@@ -24,6 +24,7 @@ const  LoginPage: React.FC = () => {
             url.searchParams.append('login', formData.get('login')?.toString() || '');
             url.searchParams.append('password', formData.get('password')?.toString() || '');
             console.log(url)
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const authRequest = await fetch(url);
             // const authData: IAuthSuccesfullResponse = await authRequest.json();
             // localStorage.setItem(TOKEN, authData.token);

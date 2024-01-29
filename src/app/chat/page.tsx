@@ -1,5 +1,5 @@
 import { MainLayout } from '@/components/MainLayout';
-import { Chat, IChatProps } from '@/pages/Chat';
+import Chat from '@/pagesComponent/Chat';
 import axios from 'axios';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
