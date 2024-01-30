@@ -18,11 +18,12 @@ const ChatCategoryCard: React.FC<ChatCategoryCardProps> = ({
     view,
     type,
     title,
+    promptText,
     img
 }) => {
     const router = useRouter();
     const onCategoryClick: React.MouseEventHandler<HTMLDivElement> = () => {
-        localStorage.setItem(CHAT_MESSAGE, JSON.stringify({description, type, view}));
+        localStorage.setItem(CHAT_MESSAGE, JSON.stringify({description: promptText.replace('${city}', localStorage.getItem('CITY') || ''), type, view}));
         router.push('/chat');
     };
     return (

@@ -92,6 +92,7 @@ const Chat: React.FC<IChatProps> = ({ messages = [] }) => {
                             { userMsg: usrInputMsg }
                         ]);
                         setUsrInputMsg('');
+                        setMsgMetadata(null);
                     }}
                 >
                     <Image src={sendImg} alt="Send img" />{' '}

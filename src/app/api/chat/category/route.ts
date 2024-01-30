@@ -15,6 +15,7 @@ export type IChatDataResponse = {
         description: string;
         img: string;
         view?: string;
+        promptText: string;
         type: CategoryType;
     }[];
 }[];
