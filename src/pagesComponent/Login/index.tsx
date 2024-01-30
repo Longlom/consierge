@@ -10,10 +10,11 @@ import { useRouter } from 'next/navigation'
 export const TOKEN = 'TOKEN';
 
 const  LoginPage: React.FC = () => {
-    const { push,  } = useRouter()
+    const { push } = useRouter()
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const [city, setCity] = useState('');
     const [error, setError] = useState<null | string>(null);
 
     async function authenticate(formData: FormData) {
@@ -23,11 +24,12 @@ const  LoginPage: React.FC = () => {
             url.pathname = 'api/auth';
             url.searchParams.append('login', formData.get('login')?.toString() || '');
             url.searchParams.append('password', formData.get('password')?.toString() || '');
+            url.searchParams.append('city', formData.get('city')?.toString() || '');
+            localStorage.setItem('CITY', formData.get('city')?.toString() || '')
             console.log(url)
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const authRequest = await fetch(url);
             // const authData: IAuthSuccesfullResponse = await authRequest.json();
-            // localStorage.setItem(TOKEN, authData.token);
 
             push('/');
         } catch (error) {
@@ -50,7 +52,13 @@ const  LoginPage: React.FC = () => {
                 <ConsiergeInput type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
 
-            <ConsiergeButton buttonType='long' className={style.button} text='Авторизация' disabled={!password || !login} />
+
+            <div className={style.inputContainer}>
+                <div className={style.inputHeader}>Город</div>
+                <ConsiergeInput name='city' value={city} onChange={(e) => setCity(e.target.value)} />
+            </div>
+
+            <ConsiergeButton buttonType='long' className={style.button} text='Авторизация' disabled={!password || !login || !city} />
         </form>
 
         {error && <div className={style.errorMessage}>{error}</div>}

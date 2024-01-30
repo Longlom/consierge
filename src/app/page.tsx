@@ -23,6 +23,14 @@ export default async function Home() {
     console.log(e)
   }
 
+  chatData = chatData.map((data: any) => {
+    data.choices = data.choices.map((choice: any) => {
+      choice.description = choice.description.replace('${city}', cookieStore.get('CITY')?.value)
+      return choice;
+    }) 
+
+    return data;
+  })
 
   console.log('chatData', chatData);
 

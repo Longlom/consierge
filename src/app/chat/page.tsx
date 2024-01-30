@@ -13,21 +13,23 @@ export default async function ChatConversation() {
     redirect('/login');
   }
 
-
-  const url = `${process.env.NEXT_PUBLIC_URL}/api/chat/messages`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/api/chat/messages/`;
 
   let messagesData;
-
   try {
-    messagesData = await axios.get(url);
+    messagesData = await axios.get(url, {
+      params: {
+        token: token.value
+      }
+    });
   } catch (e) {
-    console.log(e)
+    console.log('ERROR IN CHAT PAGE')
   }
-  console.log('messagesData?.data - ', messagesData?.data)
 
-    return (
-        <MainLayout withoutTopPadding>
-          <Chat messages={messagesData?.data || []}/>
-        </MainLayout>
-    );
+
+  return (
+    <MainLayout withoutTopPadding>
+      <Chat messages={messagesData?.data || []} />
+    </MainLayout>
+  );
 }

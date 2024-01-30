@@ -6,10 +6,12 @@ import Image from 'next/image';
 import { IChatProps } from '..';
 import { useEffect, useRef, useState } from 'react';
 import { CategoryType } from '@/app/api/chat/category/route';
+import { replaceNewLineToHtml } from '@/lib/newLineToHtml';
+import { CHAT_MESSAGE } from '@/pagesComponent/ChatCategory/ChatCategoryCard';
 
 export type IMessageBlockProps = IChatProps['messages'][0] & {
     setAllMessages: (msg: IChatProps['messages']) => void;
-    metadata?: null | {type: CategoryType, view?: string};
+    metadata?: null | { type: CategoryType, view?: string };
 };
 
 const API_MAPPER: Record<CategoryType, string> = {
@@ -26,44 +28,44 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
     consiergeMsg,
     metadata,
 }) => {
+    console.log('consiergeMsg?.includes -', consiergeMsg?.includes('\n'))
     const [isGenerating, setGenerating] = useState(false);
     const [shouldGenerating, setShouldGenerating] = useState(true);
     const consiergMsgRef = useRef<HTMLDivElement>(null);
-
+    console.log('metadata - ', metadata)
     function saveMessageBlock(block: Required<IChatProps['messages'][0]>) {
         const url = new URL(
-            `${process.env.NEXT_PUBLIC_URL}/api/chat/saveMessages/$`
+            `${process.env.NEXT_PUBLIC_URL}/api/chat/saveMessages/`
         );
 
-        url.searchParams.append('userMsg', block.userMsg);
-        url.searchParams.append('consiergeMsg', block.consiergeMsg);
-        console.log(url);
+        console.log('block -', block)
         fetch(url, {
             body: JSON.stringify({
                 userMsg: block.userMsg,
                 consiergeMsg: block.consiergeMsg
             }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
             method: 'POST'
-        });
+        }).finally(() => localStorage.removeItem(CHAT_MESSAGE));
     }
 
     useEffect(() => {
-        if (!consiergeMsg && !isGenerating && shouldGenerating && metadata) {
+        if (!consiergeMsg && !isGenerating && shouldGenerating) {
             setGenerating(true);
             setShouldGenerating(false);
-            const url = new URL(`https://back-concierge.rebooking.space/space/api/${API_MAPPER[metadata.type]}/`);
-
-            
+            const url = new URL(`https://back-concierge.rebooking.space/space/api/${API_MAPPER[metadata?.type || 'free']}/`);
 
             fetch(
                 url,
                 {
                     method: 'POST',
-                    body: JSON.stringify({ query: userMsg, city: 'Берлин', view: metadata.view }),
+                    body: JSON.stringify({ query: userMsg, city: localStorage.getItem('CITY'), view: metadata?.view }),
                     headers: {
                         key: '2k$m6lkxskaf*=$3c-+074+o6&r=ybxgdqd@0$=)-',
                         accept: 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     }
                 }
             )
@@ -85,17 +87,17 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
                                             userMsg,
                                             consiergeMsg:
                                                 consiergMsgRef.current
-                                                    ?.innerHTML || ''
+                                                    ?.innerText || ''
                                         });
+                                        consiergMsgRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
                                         break;
                                     }
 
                                     let str = new TextDecoder().decode(value);
-                                    console.log('str - ', str);
                                     if (consiergMsgRef.current) {
                                         consiergMsgRef.current.innerHTML =
                                             consiergMsgRef.current.innerHTML +
-                                            str;
+                                            replaceNewLineToHtml(str);
                                     }
                                 }
                             }
@@ -105,9 +107,9 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
                         }
                     });
                 })
-                .catch((err) => {console.log(err)});
+                .catch((err) => { console.log(err) });
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -136,7 +138,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
                     className={styles.cosiergeMessageText}
                     ref={consiergMsgRef}
                 >
-                    {consiergeMsg}
+                    {consiergeMsg?.split('\n').map((str) => <>{str}<br/></>)}
                 </div>
             </div>
         </div>

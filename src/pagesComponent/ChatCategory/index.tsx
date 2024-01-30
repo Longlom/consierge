@@ -21,7 +21,7 @@ export type ChatCategoryProps = {
 
 const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
     const router = useRouter();
-
+    console.log(data)
     const [currentActiveCategory, setCurrentActiveCategory] = useState(0);
     const [usrInputMsg, setUsrInputMsg] = useState('');
 
@@ -62,7 +62,7 @@ const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
     };
 
     const onSendMsgClick: React.MouseEventHandler<HTMLButtonElement> = () => {
-        localStorage.setItem(CHAT_MESSAGE, usrInputMsg);
+        localStorage.setItem(CHAT_MESSAGE, JSON.stringify({description: usrInputMsg, type: 'free'}) );
         setUsrInputMsg('');
         router.push('/chat');
     };
@@ -70,8 +70,6 @@ const ChatCategory: React.FC<ChatCategoryProps> = ({ data }) => {
     const cards = flattenedChoices.map((choice, i) => (
         <ChatCategoryCard key={i} {...choice} />
     ));
-
-    console.log('data -', data)
 
     return (
         <div className={styles.container}>

@@ -28,9 +28,9 @@ const Chat: React.FC<IChatProps> = ({ messages = [] }) => {
     const [msgMetadata, setMsgMetadata] = useState<null | {type: CategoryType, view?: string}>(null);
 
     useEffect(() => {
-        const mes = JSON.parse(localStorage.getItem(CHAT_MESSAGE) || '');
+        const mes = JSON.parse(localStorage.getItem(CHAT_MESSAGE) || '{}');
         console.log('mes - ', mes);
-        if (mes) {
+        if (mes.description) {
             setMsgMetadata({type: mes.type, view: mes.view})
             setAllMessages(() => [...allMessages, { userMsg: mes.description,  }]);
         }

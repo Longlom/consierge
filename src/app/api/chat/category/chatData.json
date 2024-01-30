@@ -5,25 +5,25 @@
             {
                 "title": "Один",
                 "img": "alone.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "weekendPlan"
             },
             {
                 "title": "Вдвоем",
                 "img": "couple.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "weekendPlan"
             },
             {
                 "title": "С детьми",
                 "img": "with_children.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "weekendPlan"
             },
             {
                 "title": "С группой",
                 "img": "group.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "weekendPlan"
             }
         ]
@@ -34,25 +34,25 @@
             {
                 "title": "Ланч",
                 "img": "lunch.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "food"
             },
             {
                 "title": "Перекус",
                 "img": "food.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "food"
             },
             {
                 "title": "Ужин",
                 "img": "ev_lunch.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "food"
             },
             {
                 "title": "Высокая кухня",
                 "img": "lux_food.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "food"
             }
         ]
@@ -64,28 +64,28 @@
                 "title": "Недорогие",
                 "view": "Недорогие отели",
                 "img": "cheap.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Интересные",
                 "view": "Интересные отели",
                 "img": "interesting.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Знаковые отели",
                 "view": "Знаковые отели",
                 "img": "znak.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Роскошные",
                 "view": "Роскошные отели",
                 "img": "luxury.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             }
         ]
@@ -96,25 +96,25 @@
             {
                 "title": "История и архитектура",
                 "img": "history.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Музеи, галереи, выставки",
                 "img": "museums.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Природа",
                 "img": "enviroment.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Театры, фестивали, спорт",
                 "img": "theater.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             }
         ]
@@ -125,25 +125,25 @@
             {
                 "title": "Экскурсии",
                 "img": "excursion.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "excursion"
             },
             {
                 "title": "Активный досуг",
                 "img": "active.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "excursion"
             },
             {
                 "title": "Культурные события",
                 "img": "cultural.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "excursion"
             },
             {
                 "title": "Nightlife",
                 "img": "nightlife.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "excursion"
             }
         ]
@@ -155,28 +155,28 @@
                 "title": "Аптеки",
                 "view": "Аптеки",
                 "img": "pharmacy.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Медицинские центры и клиники",
                 "view": "Медицинские центры и клиники",
                 "img": "meds.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Дежурные врачи и неотложная помощь",
                 "view": "Дежурные врачи и неотложная помощь",
                 "img": "dezhur.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Медицинские услуги для туристов",
                 "view": "Дежурные врачи и неотложная помощь",
                 "img": "med_offer.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             }
         ]
@@ -188,28 +188,28 @@
                 "title": "Торговые центры и магазины",
                 "view": "Торговые центры и магазины",
                 "img": "tc.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Местные рынки и сувениры",
                 "view": "Местные рынки и сувениры",
                 "img": "souvenirs.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Бутики и дизайнерские магазины",
                 "view": "Бутики и дизайнерские магазины",
                 "img": "boutiqs.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Эксклюзивные товары и подарки",
                 "view": "Эксклюзивные товары и подарки",
                 "img": "exclusive.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             }
         ]
@@ -221,28 +221,28 @@
                 "title": "SPA-салоны",
                 "view": "SPA-салоны",
                 "img": "spa.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Йога и фитнес-центра",
                 "view": "Йога и фитнес-центра",
                 "img": "yoga.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Релаксация и медитация",
                 "view": "Релаксация и медитация",
                 "img": "relax.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             },
             {
                 "title": "Оздоровительные процедуры",
                 "view": "Оздоровительные процедуры",
                 "img": "health_proc.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "realPlace"
             }
         ]
@@ -253,25 +253,25 @@
             {
                 "title": "Общественный транспорт",
                 "img": "public_transport.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Такси и аренда автомобилей",
                 "img": "taxi.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Велосипеды и электросамокаты",
                 "img": "bike.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Трансферы и специализированный транспорт",
                 "img": "transfer.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             }
         ]
@@ -282,25 +282,25 @@
             {
                 "title": "Экстренные службы",
                 "img": "er.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Медицинская помощь в экстренных случаях",
                 "img": "aid.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Консульские услуги",
                 "img": "consul.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             },
             {
                 "title": "Советы по безопасности",
                 "img": "security.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "free"
             }
         ]
@@ -311,25 +311,25 @@
             {
                 "title": "Праздники и фестивали",
                 "img": "holidays.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "facts"
             },
             {
                 "title": "Кулинарные традиции",
                 "img": "cuisine_trad.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "facts"
             },
             {
                 "title": "Этикет и поведение",
                 "img": "etiket.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "facts"
             },
             {
                 "title": "Исторические и культурные места",
                 "img": "history_place.png",
-                "description": "в городе Дубай которые стоит посетить",
+                "description": "в городе ${city} которые стоит посетить",
                 "type": "facts"
             }
         ]

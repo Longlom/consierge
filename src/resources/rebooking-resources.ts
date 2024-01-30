@@ -6,7 +6,7 @@ const API_KEY = '79cYl8e2magRlt4jqJScu8nY7AoTqqo0KaXXD0owwkI=';
 const instance = axios.create(
     {
         baseURL: BASE_URL,
-        timeout: 600,
+        timeout: 1000,
         params: {
             apiKey: API_KEY,
         }
