@@ -21,7 +21,6 @@ export async function GET(request: Request) {
 
         return Response.json({ token: authData.data.token })
     } catch (error) {
-        console.log('error - ', error)
         let e = error as Error;
         return new Response(e.message, {
             status: 401,

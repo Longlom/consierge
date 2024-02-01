@@ -17,31 +17,32 @@ const  LoginPage: React.FC = () => {
     const [city, setCity] = useState('');
     const [error, setError] = useState<null | string>(null);
 
-    async function authenticate(formData: FormData) {
+    async function authenticate() {
 
         try {
             const url = new URL(document.URL);
             url.pathname = 'api/auth';
-            url.searchParams.append('login', formData.get('login')?.toString() || '');
-            url.searchParams.append('password', formData.get('password')?.toString() || '');
-            url.searchParams.append('city', formData.get('city')?.toString() || '');
-            localStorage.setItem('CITY', formData.get('city')?.toString() || '')
-            console.log(url)
+            url.searchParams.append('login', login || '');
+            url.searchParams.append('password', password || '');
+            url.searchParams.append('city', city|| '');
+            localStorage.setItem('CITY', city|| '')
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const authRequest = await fetch(url);
-            // const authData: IAuthSuccesfullResponse = await authRequest.json();
-
+            let resAuth =  await fetch(url);
+            let res = await resAuth.json();
             push('/');
         } catch (error) {
-            console.log(error)
             setError('Неверный пароль или логин')
+
         }
     }
 
     return <div className={style.container}>
         <h1 className={style.title}>Авторизация</h1>
 
-        <form action={authenticate} >
+        <form onSubmit={(e) => {
+            e.preventDefault()
+            authenticate()
+        }} >
             <div className={style.inputContainer}>
                 <div className={style.inputHeader}>Логин</div>
                 <ConsiergeInput name='login' value={login} onChange={(e) => setLogin(e.target.value)} />
