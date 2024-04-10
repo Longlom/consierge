@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import userImg from '@/public/chat/user.png';
 import consiergeImg from '@/public/chat/cosierge.png';
 
