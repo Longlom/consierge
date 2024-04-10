@@ -6,8 +6,10 @@ import Image from 'next/image';
 import { IChatProps } from '..';
 import { useEffect, useRef, useState } from 'react';
 import { CategoryType } from '@/app/api/chat/category/route';
-import { replaceNewLineToHtml } from '@/lib/newLineToHtml';
 import { CHAT_MESSAGE } from '@/pagesComponent/ChatCategory/ChatCategoryCard';
+import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 export type IMessageBlockProps = IChatProps['messages'][0] & {
     setAllMessages: (msg: IChatProps['messages']) => void;
@@ -31,6 +33,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
     console.log('consiergeMsg?.includes -', consiergeMsg?.includes('\n'))
     const [isGenerating, setGenerating] = useState(false);
     const [shouldGenerating, setShouldGenerating] = useState(true);
+    const [msgResponse, setMsgResponse] = useState(consiergeMsg);
     const consiergMsgRef = useRef<HTMLDivElement>(null);
     console.log('metadata - ', metadata)
     function saveMessageBlock(block: Required<IChatProps['messages'][0]>) {
@@ -55,7 +58,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
         if (!consiergeMsg && !isGenerating && shouldGenerating) {
             setGenerating(true);
             setShouldGenerating(false);
-            const url = new URL(`https://back-concierge.rebooking.space/space/api/${API_MAPPER[metadata?.type || 'free']}/`);
+            const url = new URL(`${process.env.NEXT_PUBLIC__BACK_URL}/${API_MAPPER[metadata?.type || 'free']}/`);
 
             fetch(
                 url,
@@ -94,11 +97,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
                                     }
 
                                     let str = new TextDecoder().decode(value);
-                                    if (consiergMsgRef.current) {
-                                        consiergMsgRef.current.innerHTML =
-                                            consiergMsgRef.current.innerHTML +
-                                            replaceNewLineToHtml(str);
-                                    }
+                                    setMsgResponse((prevVal) => (prevVal + str).split('\\n').join("<br/>"));
                                 }
                             }
 
@@ -138,7 +137,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
                     className={styles.cosiergeMessageText}
                     ref={consiergMsgRef}
                 >
-                    {consiergeMsg?.split('\n').map((str) => <>{str}<br/></>)}
+                      <Markdown rehypePlugins={[rehypeRaw, remarkGfm]} children={msgResponse}/> 
                 </div>
             </div>
         </div>
