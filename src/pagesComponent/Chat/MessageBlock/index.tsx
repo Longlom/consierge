@@ -34,7 +34,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
     console.log('consiergeMsg?.includes -', consiergeMsg?.includes('\n'))
     const [isGenerating, setGenerating] = useState(false);
     const [shouldGenerating, setShouldGenerating] = useState(true);
-    const [msgResponse, setMsgResponse] = useState(consiergeMsg);
+    const [msgResponse, setMsgResponse] = useState(consiergeMsg || "");
     const consiergMsgRef = useRef<HTMLDivElement>(null);
     console.log('metadata - ', metadata)
     function saveMessageBlock(block: Required<IChatProps['messages'][0]>) {
