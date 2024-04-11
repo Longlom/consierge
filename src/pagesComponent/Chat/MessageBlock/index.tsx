@@ -138,7 +138,7 @@ const MessageBlock: React.FC<IMessageBlockProps> = ({
                     className={styles.cosiergeMessageText}
                     ref={consiergMsgRef}
                 >
-                      <Markdown rehypePlugins={[rehypeRaw, remarkGfm]} children={msgResponse}/> 
+                      <Markdown rehypePlugins={[rehypeRaw, remarkGfm]} children={msgResponse || ''}/> 
                 </div>
             </div>
         </div>
